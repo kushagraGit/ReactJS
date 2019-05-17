@@ -18,19 +18,17 @@ formatCount(){
 };
 
 newMethodBoot(){
-    
+    let classes = "badge m-2 badge-";
+    classes += (this.state.count === 0) ? "warning" : "primary";
+    return classes;
 }
 
   render() {
-
-    let classes = "badge m-2 badge-";
-    classes += (this.state.count === 0) ? "warning" : "primary";
-
     return (
       <React.Fragment>
         <h6> Your first component! </h6>
         <img src={this.state.imageUrl} alt="" />
-        <span className = {classes} /*style={this.styles}*/>{this.formatCount()}</span>
+        <span className = {this.newMethodBoot()} /*style={this.styles}*/>{this.formatCount()}</span>
         <button className = "btn btn-secondry btn-sm">Test Button</button>
       </React.Fragment>
     );
