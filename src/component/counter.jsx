@@ -8,7 +8,7 @@ state = {
 
 formatCount(){
     const { count } = this.state;
-    return count === 0 ? 'Zero' : count;
+    return count === 0 ? <h3>Zero</h3> : count;
 };
 
   render() {
