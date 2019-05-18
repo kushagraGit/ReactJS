@@ -5,7 +5,7 @@ class Counter extends Component {
 state = {
     count : 0,
     imageUrl: "https://picsum.photos/200",
-    tags: ["tag1","tag2","tag3"]
+    tags: []
 };
 
 styles = {
@@ -37,7 +37,7 @@ renderTags(){
         <img src={this.state.imageUrl} alt="" />
         <span className = {this.newMethodBoot()} /*style={this.styles}*/>{this.formatCount()}</span>
         <button className = "btn btn-secondry btn-sm">Test Button</button>
-        <div>{this.renderTags()}</div>
+        <div>{this.state.tags.length === 0 && <p>Please create some tags</p>}</div>
       </React.Fragment>
     );
   }
