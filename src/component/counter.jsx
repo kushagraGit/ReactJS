@@ -13,10 +13,15 @@ styles = {
     fontWeight : 'bold'
 };
 
+constructor(){
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+}
+
 formatCount(){
     const { count } = this.state;
     return count === 0 ? <h3>Zero</h3> : count;
-};
+}
 
 newMethodBoot(){
     let classes = "badge m-2 badge-";
@@ -31,7 +36,7 @@ renderTags(){
 }
 
 handleIncrement(){
-    console.log("Increment Clicked");
+    console.log("Increment Clicked",this);
 }
 
   render() {
