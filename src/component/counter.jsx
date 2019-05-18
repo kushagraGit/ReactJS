@@ -20,13 +20,13 @@ class Counter extends Component {
   formatCount() {
     const { count } = this.state;
     return count === 0 ? <h3>Zero</h3> : count;
-  }
+  };
 
   newMethodBoot() {
     let classes = "badge m-2 badge-";
     classes += this.state.count === 0 ? "warning" : "primary";
     return classes;
-  }
+  };
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>Add some Tags</p>;
@@ -38,12 +38,17 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
+  };
 
-  handleIncrement = () => {
+  handleIncrement = product => {
     //console.log("Increment Clicked", this);
+    console.log(product);
     this.setState({count: this.state.count + 1 });
-  }
+  };
+
+  doHandleEvent = () => {
+      this.handleIncrement({id:1});
+  };
 
   render() {
     return (
@@ -55,7 +60,7 @@ class Counter extends Component {
         </span>
         <button
           className="btn btn-secondry btn-sm"
-          onClick={this.handleIncrement}
+          onClick={this.doHandleEvent}
         >
           Increment
         </button>
