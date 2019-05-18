@@ -5,7 +5,7 @@ class Counter extends Component {
 state = {
     count : 0,
     imageUrl: "https://picsum.photos/200",
-    tags: []
+    tags: ["tag1","tag2","tag3"]
 };
 
 styles = {
@@ -30,14 +30,18 @@ renderTags(){
     return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
 }
 
+handleIncrement(){
+    console.log("Increment Clicked");
+}
+
   render() {
     return (
       <React.Fragment>
         <h6> Your first component! </h6>
         <img src={this.state.imageUrl} alt="" />
         <span className = {this.newMethodBoot()} /*style={this.styles}*/>{this.formatCount()}</span>
-        <button className = "btn btn-secondry btn-sm">Test Button</button>
-        <div>{this.state.tags.length === 0 && <p>Please create some tags</p>}</div>
+        <button className = "btn btn-secondry btn-sm" onClick = {this.handleIncrement}>Increment</button>
+        <div>{this.renderTags()}</div>
       </React.Fragment>
     );
   }
