@@ -24,6 +24,12 @@ newMethodBoot(){
     return classes;
 }
 
+renderTags(){
+    if(this.state.tags.length === 0) return <p>Add some Tags</p>;
+
+    return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+}
+
   render() {
     return (
       <React.Fragment>
@@ -31,9 +37,7 @@ newMethodBoot(){
         <img src={this.state.imageUrl} alt="" />
         <span className = {this.newMethodBoot()} /*style={this.styles}*/>{this.formatCount()}</span>
         <button className = "btn btn-secondry btn-sm">Test Button</button>
-        <ul>
-            {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
-        </ul>
+        <div>{this.renderTags()}</div>
       </React.Fragment>
     );
   }
